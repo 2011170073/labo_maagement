@@ -1,0 +1,9 @@
+.flex1{
+    display:flex;
+    flex-wrap:wrap;
+    width:80%;
+}
+
+.flex1 .box{
+    width:40%;
+}

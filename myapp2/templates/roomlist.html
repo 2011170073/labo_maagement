@@ -1,0 +1,15 @@
+{%extends "base.html" %}
+
+{%block content %}
+    <h2>先生一覧画面</h2>
+    {%for item in roomlist_list %}
+        <a href="{% url '' %}">{{item.teacher_name}}</a>
+    {%endfor%}
+{%endblock%}
+
+<!-- 
+    bookモデル＝一覧・詳細
+    ①先生の名前一覧モデル=白土(teacher_key=1)、平野(primarykey=2)
+    ②各先生の状況確認モデル=白土(①とリレーションで繋げる、
+    　例えば、①tk=1が選択されると、②の白土状況モデルが参照される？みたいな
+-->

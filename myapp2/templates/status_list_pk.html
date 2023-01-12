@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for item in status_list_pk %}
+        <h3>名前：{{ item.teacher_id }}</h3>
+        <p>更新時間：{{ item.created_at }}</p>
+        <p>ステータス：{{ item.status }}</p>
+        <p>タッチ場所:{{item.room_id}}</p>
+        
+    {% endfor %}
+{% endblock %}
+{%block javascript1 %}
+    <script>
+        setInterval(function(){
+            window.location.reload()
+        },3000);
+        //第一引数をlamda関数ではなく、普通にconsole.logなどの関数を居れていると、
+        //setTimeoutはまず第一引数を実行し、その戻り値であるundifinedを2引数後に実行するため何もおきない
+    </script>
+{%endblock %}

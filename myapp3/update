@@ -1,0 +1,41 @@
+"""
+        if now_room.id == 0 and next_room.id == 1000:#なし➔研究室
+            models.status_list.objects.create(status_id=status_ins(id=0).id,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room.id == 1000 and next_room.id == 1000:#研究室➔研究室
+            if teacher_pk == owrner:#タッチした先生のidとタッチした研究室のowrner_idが同じ場合は在室↔不在
+                models.status_list.objects.create(status_id=status_ins(id=0).id,room_id=touch_room,teacher_id=teacher_pk)
+                #status_idは値を反転する
+            else:#タッチした先生のidとタッチした研究室のowrner_idが違う場合は研究室➔
+                models.status_list.objects.create(status_id=status_ins(id=0).id,room_id=touch_room,teacher_id=teacher_pk)
+
+        elif now_room.id == 1000 and next_room.id == 2000:#研究室➔講義棟
+            models.status_list.objects.create(status_id=status_ins(id=0).id,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room.id == 1000 and next_room.id == 3000:#研究室➔会議室
+            models.status_list.objects.create(status_id=status_ins(id=0).id,room_id=touch_room,teacher_id=teacher_pk) 
+ 
+        
+"""
+"""
+        if now_room == "なし" and next_room == "研究室":
+            models.status_list.objects.create(status_name=self.status_ins[1],status=1,room_id=touch_room,teacher_id=teacher_pk)
+            #先生が出勤していきなり会議室や講義棟に行く場合はif文で処理追加(なし➔研究室でcreate)
+        elif now_room == "研究室" and next_room == "講義室":
+            models.status_list.objects.create(status_name=self.status_ins[3],status=3,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "研究室" and next_room == "会議室":
+            models.status_list.objects.create(status_name=self.status_ins[4],status=4,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "研究室" and next_room == "研究室":
+            if last_status.status == 1:#現状態が在室
+                models.status_list.objects.create(status_name=self.status_ins[2],status=2,room_id=touch_room,teacher_id=teacher_pk)
+            elif last_status.status == 2:#現状態が不在
+                models.status_list.objects.create(status_name=self.status_ins[1],status=1,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "講義室" and next_room == "研究室":
+            models.status_list.objects.create(status_name=self.status_ins[1],status=1,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "講義室" and next_room == "会議室":
+            models.status_list.objects.create(status_name=self.status_ins[4],status=4,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "会議室" and next_room == "研究室":
+            models.status_list.objects.create(status_name=self.status_ins[1],status=1,room_id=touch_room,teacher_id=teacher_pk)
+        elif now_room == "会議室" and next_room == "講義室":
+            models.status_list.objects.create(status_name=self.status_ins[3],status=3,room_id=touch_room,teacher_id=teacher_pk)
+"""
+
+       
