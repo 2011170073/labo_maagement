@@ -24,6 +24,7 @@
 - プラットフォーム：Virtual Box
 - OS:Linux
 - フレームワーク：Django
+- データベース：SQ Lite3
 - ライブラリ：APScheduler
 - 言語：Python,HTML/CSS,JavaScript
 
